@@ -7,3 +7,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 npm run start
+
+https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-react?pivots=github
