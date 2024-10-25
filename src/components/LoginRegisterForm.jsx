@@ -20,7 +20,7 @@ function LoginRegisterForm() {
 
     try {
       const payload = isRegister ? { username, email, password } : { username, password };
-      const url = isRegister ? 'http://localhost:7071/api/register' : 'http://localhost:7071/api/login';
+      const url = isRegister ? 'https://vintelligent-b.azurewebsites.net/api/register' : 'https://vintelligent-b.azurewebsites.net/api/login';
 
       // Basic validation for registration
       if (isRegister && password !== confirmPassword) {

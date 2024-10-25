@@ -39,7 +39,7 @@ const Profile = () => {
 
     const fetchFavoriteWines = async () => {
       try {
-        const response = await axios.get(`http://localhost:7071/api/getFavoriteWines?profileId=${profileId}`, {
+        const response = await axios.get(`https://vintelligent-b.azurewebsites.net/api/getFavoriteWines?profileId=${profileId}`, {
           headers: {
             'Content-Type': 'application/json',
           },

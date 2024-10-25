@@ -4,8 +4,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-npm install tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-npm run start
+Followed:
+    https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-react?pivots=github
+Initial commands:
+    npm install tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+    npm run start
 
-https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-react?pivots=github
+TODO:
+- Change URLs to backend URL

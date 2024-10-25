@@ -96,7 +96,7 @@ const WineListScanner = () => {
           formData.append('wineListImage', blob, 'wine-list.jpg');
           formData.append('profileId', profileId);
   
-          const response = await fetch('http://localhost:7071/api/processWineList', {
+          const response = await fetch('https://vintelligent-b.azurewebsites.net/api/processWineList', {
               method: 'POST',
               body: formData,
           });
