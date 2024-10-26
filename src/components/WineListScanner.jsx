@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Camera } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import LoadingIndicator from './LoadingIndicator';
 
 const WineListScanner = () => {
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ const WineListScanner = () => {
     const [isCameraActive, setIsCameraActive] = useState(false);
     const [capturedImage, setCapturedImage] = useState(null);
     const [profileId, setProfileId] = useState(null);
+    const [isLoading, setIsLoading] = useState(false); // State for loading indicator
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
@@ -85,6 +87,7 @@ const WineListScanner = () => {
 
     const submitImage = async () => {
       if (!capturedImage) return;
+      setIsLoading(true); // Start loading indicator
   
       try {
           // Convert base64 to blob
@@ -120,6 +123,9 @@ const WineListScanner = () => {
           setError(error.message || 'Failed to process the wine list image. Please try again.');
           setWineList('');
       }
+      finally {
+        setIsLoading(false); // Stop loading indicator
+    }
   };
 
     // Rest of the component remains the same
@@ -174,7 +180,7 @@ const WineListScanner = () => {
                         onChange={(e) => setWineList(e.target.value)}
                     />
                     <button
-                        className="w-full bg-wine-red text-white p-3 rounded-lg hover:bg-green-700 transition-colors"
+                        className="w-full bg-wine-red text-white p-3 rounded-lg hover:wine-light transition-colors"
                         onClick={() => {
                             if (capturedImage) {
                                 submitImage();
@@ -184,6 +190,7 @@ const WineListScanner = () => {
                         Submit Wine List
                     </button>
                 </div>
+                {isLoading && <LoadingIndicator />} {/* Show loading indicator */}
             </div>
         </div>
     );
