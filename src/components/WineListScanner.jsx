@@ -130,7 +130,7 @@ const WineListScanner = () => {
 
     // Rest of the component remains the same
     return (
-        <div className="flex flex-col min-h-screen bg-gray-50">
+        <div className="flex flex-col min-h-screen bg-gray-50 pb-20">
             <div className="flex-1 p-4">
                 <h2 className="text-2xl font-semibold text-center mb-6">Scan Your Wine List</h2>
                 <div className="relative mb-4">
@@ -179,6 +179,7 @@ const WineListScanner = () => {
                         value={wineList}
                         onChange={(e) => setWineList(e.target.value)}
                     />
+                    {isLoading && <LoadingIndicator />} {/* Show loading indicator */}
                     <button
                         className="w-full bg-wine-red text-white p-3 rounded-lg hover:wine-light transition-colors"
                         onClick={() => {
@@ -190,7 +191,7 @@ const WineListScanner = () => {
                         Submit Wine List
                     </button>
                 </div>
-                {isLoading && <LoadingIndicator />} {/* Show loading indicator */}
+
             </div>
         </div>
     );

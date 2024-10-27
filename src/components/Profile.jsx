@@ -2,22 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// Function to parse the recommendations string into an array of objects 
-const parseRecommendations = (recommendations) => {
-  if (!recommendations) return [];
-
-  return recommendations.split('\n').map((wine) => {
-    const parts = wine.includes(',') ? wine.split(',') : wine.split('.');
-    return {
-      name: parts[0]?.trim() || 'Unknown Wine',
-      region: parts[1]?.trim() || 'Unknown Region',
-      match: Math.floor(Math.random() * 21) + 80, // Random match score between 80-100
-      rating: (Math.random() * 1.5 + 3.5).toFixed(1), // Random rating between 3.5-5.0
-      image: '/wine_bottle.png', // Placeholder image path
-    };
-  });
-};
-
 const Profile = () => {
   const navigate = useNavigate();
   const [favoriteWines, setFavoriteWines] = useState([]);
@@ -44,7 +28,14 @@ const Profile = () => {
             'Content-Type': 'application/json',
           },
         });
-        setFavoriteWines(response.data.favoriteWines);
+        const parsedWines = response.data.favoriteWines.map((wine) => {
+          const parts = wine.Title.includes(',') ? wine.Title.split(',') : wine.Title.split('.');
+          return {
+            name: parts[0]?.trim() || 'Unknown Wine',
+            region: parts[1]?.trim() || 'Unknown Region',
+          };
+        });
+        setFavoriteWines(parsedWines);
       } catch (err) {
         setError('Failed to fetch favorite wines. Please try again later.');
       }
@@ -67,7 +58,8 @@ const Profile = () => {
               <div key={index} className="p-6 bg-white rounded-xl shadow-md flex items-center transition-all duration-300 hover:scale-105">
                 <img src='/wine_bottle.png' alt={wine.Title} className="w-20 h-20 rounded-full object-cover" />
                 <div className="ml-6">
-                  <h3 className="text-2xl font-bold text-gray-800">{wine.Title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-800">{wine.name}</h3>
+                  <p className="text-sm text-gray-500">{wine.region}</p>
                 </div>
               </div>
             ))}
