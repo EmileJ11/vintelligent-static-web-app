@@ -8,20 +8,21 @@ const WineRecommendations = () => {
 
   // Hardcoded recommendations based on user profile ID
   const getHardcodedRecommendations = (profileId) => {
-    if (profileId === '1') {
+    if (profileId === '2') { // Martin Butler -> menu 1
       return [
-        { name: "Rupert & Rothschild 'Classique' 2019/20", match: 73, rating: 4.7, region: 'South Africa', image: 'wine_bottle.png' },
-        { name: 'Bodegas Bardos Ribera del Duero Crianza', match: 27, rating: 4.8, region: '/', image: 'wine_bottle.png' }
+        { name: "Rupert & Rothschild 'Classique' 2019/20", match: 60.6, rating: 4.7, region: 'South Africa', image: 'wine_bottle.png' },
+        { name: 'Bodegas Bardos Ribera del Duero Crianza', match: 39.4, rating: 4.3, region: '/', image: 'wine_bottle.png' }
       ];
-    } else if (profileId === '2') {
+    } else if (profileId === '1') { // Robbe Mannens -> menu 3
       return [
-        { name: 'Penfolds Grange', match: 73, rating: 4.9, region: 'Australia', image: 'wine_bottle.png' },
-        { name: 'Opus One', match: 27, rating: 4.6, region: 'Napa Valley', image: 'wine_bottle.png' }
+        { name: 'Château de la Cour d’Argent 2014', match: 40.1, rating: 4.9, region: 'Bordeaux Supérieur', image: 'wine_bottle.png' },
+        { name: "Bodegas Ontañón 'Canderuela' Rioja Crianza 2019", match: 40.1, rating: 4.2, region: '/', image: 'wine_bottle.png' },
+        { name: 'Cuvée de Richard Rouge 2021/22', match: 27.0, rating: 4.6, region: 'France', image: 'wine_bottle.png' }
       ];
-    } else if (profileId === '3') {
+    } else if (profileId === '3') { // Emile Peeters -> menu 2
       return [
-        { name: 'Sassicaia', match: 73, rating: 4.9, region: 'Italy', image: 'wine_bottle.png' },
-        { name: 'Petrus', match: 27, rating: 4.7, region: 'France', image: 'wine_bottle.png' }
+        { name: "St Cosme 'Micro Cosme' Sauvignon-Viognier 2019/20", match: 58.2, rating: 4.9, region: 'France', image: 'wine_bottle.png' },
+        { name: "Paolo Leo 'Renèe Bianco Organic' 2020/21", match: 41.8, rating: 4.7, region: 'Puglia', image: 'wine_bottle.png' }
       ];
     } else {
       // Default hardcoded recommendations if no profile ID matches

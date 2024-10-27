@@ -114,7 +114,8 @@ const WineListScanner = () => {
             // Navigate to recommendations page with the data
             navigate('/recommendations', { 
               state: { 
-                  recommendations: result.wineListText
+                  recommendations: result.wineListText,
+                  profileId: profileId
               }
           });
           setError(null);
